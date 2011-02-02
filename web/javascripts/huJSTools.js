@@ -32,9 +32,24 @@ Hudora.Formatters = function() {
       if(!date)
         return '';
       return Date.parseExact(date, 'yyyy-MM-dd').toString(Hudora.FormatPatterns.hudoraDate);
+    },
+    
+    formatLink: function(link, text) {
+        if(!link) {
+            return '';
+        }
+        var markup = '<a href="' + link + '">';
+        if(text) {
+            markup += text;
+        } else {
+            markup += link;
+        }
+        markup += '</a>';
+        return markup;
     }
   };
 }();
+
 
 Hudora.Helpers = function() {
   return {
