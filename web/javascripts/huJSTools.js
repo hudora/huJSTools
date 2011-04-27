@@ -33,7 +33,7 @@ Hudora.Formatters = function() {
         return '';
       return Date.parseExact(date, 'yyyy-MM-dd').toString(Hudora.FormatPatterns.hudoraDate);
     },
-    
+
     formatLink: function(link, text) {
         if(!link) {
             return '';
@@ -46,6 +46,29 @@ Hudora.Formatters = function() {
         }
         markup += '</a>';
         return markup;
+    },
+
+    /**
+     * rundet den uebergebenen Centbetrag in glatte Euros und formatiert ihn
+     * mit einen Leerzeichen als 1000sender-Trenner.
+     * @param {Integer} cents die darzustellenden Eurocent.
+     * @param {String} delimiter der Trenner zwischen den 100sender Stellen, als
+     * Default wird ein einzelnes Leerzeichen genutzt.
+     * @return {String} die formattierte Eurosumme in der Form "1 234 567".
+     */
+    formatEuroCent: function(cents, delimiter) {
+      if(!cents) {
+        return "";
+      }
+      if(!delimiter) {
+        delimiter = ' ';
+      }
+      rounded = "" + Math.round(cents / 100.0);
+	    var re = /(\d+)(\d{3})/;
+      while(re.test(rounded)) {
+        rounded = rounded.replace(re, '$1' + delimiter + '$2');
+      }
+      return rounded;
     }
   };
 }();

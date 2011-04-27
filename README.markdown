@@ -9,6 +9,8 @@ Currently the helper includes the following methods:
 
  * `Hudora.Formatters.formatDate(date)`: parse the given date string (e.g. from a JSON server response) and return it formated in the HUDORA default format "Weekday, YYYY-MM-DD".
 
+ * `Hudora.Formatters.formatEuroCent(cent)`: format the given amount euro cents in euro as a string with the format "1 234 567".
+
  * `Hudora.Helpers.spinnerMessageBox(message)`: display a non-closable messagebox with a spinner indicating progress
  * `Hudora.Helpers.errorMessageBox(title, message)`: display a error message box without having to write five lines of code every time you need an error messagebox.
 
